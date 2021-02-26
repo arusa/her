@@ -35,13 +35,13 @@ First, you have to define which API your models will be bound to. For example, w
 # config/initializers/her.rb
 Her::API.setup url: "https://api.example.com" do |c|
   # Request
-  c.use Faraday::Request::UrlEncoded
+  c.request :url_encoded
 
   # Response
   c.use Her::Middleware::DefaultParseJSON
 
   # Adapter
-  c.use Faraday::Adapter::NetHttp
+  c.adapter :net_http
 end
 ```
 
